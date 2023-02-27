@@ -481,20 +481,20 @@ function OptionFn<
 
 // ---
 
-interface ComponentRadioGroup extends HasDisplayName {
+export interface ComponentRadioGroup extends HasDisplayName {
   <TTag extends ElementType = typeof DEFAULT_RADIO_GROUP_TAG, TType = string>(
     props: RadioGroupProps<TTag, TType> & RefProp<typeof RadioGroupFn>
   ): JSX.Element
 }
 
-interface ComponentRadioOption extends HasDisplayName {
+export interface ComponentRadioOption extends HasDisplayName {
   <TTag extends ElementType = typeof DEFAULT_OPTION_TAG, TType = string>(
     props: RadioOptionProps<TTag, TType> & RefProp<typeof OptionFn>
   ): JSX.Element
 }
 
-interface ComponentRadioLabel extends ComponentLabel {}
-interface ComponentRadioDescription extends ComponentDescription {}
+export interface ComponentRadioLabel extends ComponentLabel {}
+export interface ComponentRadioDescription extends ComponentDescription {}
 
 let RadioGroupRoot = forwardRefWithAs(RadioGroupFn) as unknown as ComponentRadioGroup
 let Option = forwardRefWithAs(OptionFn) as unknown as ComponentRadioOption

@@ -172,13 +172,13 @@ function GroupFn<TTag extends ElementType = typeof DEFAULT_GROUP_TAG>(
 
 // ---
 
-interface ComponentPortal extends HasDisplayName {
+export interface ComponentPortal extends HasDisplayName {
   <TTag extends ElementType = typeof DEFAULT_PORTAL_TAG>(
     props: PortalProps<TTag> & RefProp<typeof PortalFn>
   ): JSX.Element
 }
 
-interface ComponentPortalGroup extends HasDisplayName {
+export interface ComponentPortalGroup extends HasDisplayName {
   <TTag extends ElementType = typeof DEFAULT_GROUP_TAG>(
     props: PortalGroupProps<TTag> & RefProp<typeof GroupFn>
   ): JSX.Element

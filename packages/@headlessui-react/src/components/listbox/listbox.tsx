@@ -1044,7 +1044,7 @@ function OptionFn<
 
 // ---
 
-interface ComponentListbox extends HasDisplayName {
+export interface ComponentListbox extends HasDisplayName {
   <
     TTag extends ElementType = typeof DEFAULT_LISTBOX_TAG,
     TType = string,
@@ -1054,25 +1054,25 @@ interface ComponentListbox extends HasDisplayName {
   ): JSX.Element
 }
 
-interface ComponentListboxButton extends HasDisplayName {
+export interface ComponentListboxButton extends HasDisplayName {
   <TTag extends ElementType = typeof DEFAULT_BUTTON_TAG>(
     props: ListboxButtonProps<TTag> & RefProp<typeof ButtonFn>
   ): JSX.Element
 }
 
-interface ComponentListboxLabel extends HasDisplayName {
+export interface ComponentListboxLabel extends HasDisplayName {
   <TTag extends ElementType = typeof DEFAULT_LABEL_TAG>(
     props: ListboxLabelProps<TTag> & RefProp<typeof LabelFn>
   ): JSX.Element
 }
 
-interface ComponentListboxOptions extends HasDisplayName {
+export interface ComponentListboxOptions extends HasDisplayName {
   <TTag extends ElementType = typeof DEFAULT_OPTIONS_TAG>(
     props: ListboxOptionsProps<TTag> & RefProp<typeof OptionsFn>
   ): JSX.Element
 }
 
-interface ComponentListboxOption extends HasDisplayName {
+export interface ComponentListboxOption extends HasDisplayName {
   <
     TTag extends ElementType = typeof DEFAULT_OPTION_TAG,
     TType = Parameters<typeof ListboxRoot>[0]['value']

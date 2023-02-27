@@ -426,19 +426,19 @@ function PanelFn<TTag extends ElementType = typeof DEFAULT_PANEL_TAG>(
 
 // ---
 
-interface ComponentDisclosure extends HasDisplayName {
+export interface ComponentDisclosure extends HasDisplayName {
   <TTag extends ElementType = typeof DEFAULT_DISCLOSURE_TAG>(
     props: DisclosureProps<TTag> & RefProp<typeof DisclosureFn>
   ): JSX.Element
 }
 
-interface ComponentDisclosureButton extends HasDisplayName {
+export interface ComponentDisclosureButton extends HasDisplayName {
   <TTag extends ElementType = typeof DEFAULT_BUTTON_TAG>(
     props: DisclosureButtonProps<TTag> & RefProp<typeof ButtonFn>
   ): JSX.Element
 }
 
-interface ComponentDisclosurePanel extends HasDisplayName {
+export interface ComponentDisclosurePanel extends HasDisplayName {
   <TTag extends ElementType = typeof DEFAULT_PANEL_TAG>(
     props: DisclosurePanelProps<TTag> & RefProp<typeof PanelFn>
   ): JSX.Element

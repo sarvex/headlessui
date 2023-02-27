@@ -1419,7 +1419,7 @@ function OptionFn<
 
 // ---
 
-interface ComponentCombobox extends HasDisplayName {
+export interface ComponentCombobox extends HasDisplayName {
   <TValue, TTag extends ElementType = typeof DEFAULT_COMBOBOX_TAG>(
     props: ComboboxProps<TValue, true, true, TTag> & RefProp<typeof ComboboxFn>
   ): JSX.Element
@@ -1434,31 +1434,31 @@ interface ComponentCombobox extends HasDisplayName {
   ): JSX.Element
 }
 
-interface ComponentComboboxButton extends HasDisplayName {
+export interface ComponentComboboxButton extends HasDisplayName {
   <TTag extends ElementType = typeof DEFAULT_BUTTON_TAG>(
     props: ComboboxButtonProps<TTag> & RefProp<typeof ButtonFn>
   ): JSX.Element
 }
 
-interface ComponentComboboxInput extends HasDisplayName {
+export interface ComponentComboboxInput extends HasDisplayName {
   <TType, TTag extends ElementType = typeof DEFAULT_INPUT_TAG>(
     props: ComboboxInputProps<TTag, TType> & RefProp<typeof InputFn>
   ): JSX.Element
 }
 
-interface ComponentComboboxLabel extends HasDisplayName {
+export interface ComponentComboboxLabel extends HasDisplayName {
   <TTag extends ElementType = typeof DEFAULT_LABEL_TAG>(
     props: ComboboxLabelProps<TTag> & RefProp<typeof LabelFn>
   ): JSX.Element
 }
 
-interface ComponentComboboxOptions extends HasDisplayName {
+export interface ComponentComboboxOptions extends HasDisplayName {
   <TTag extends ElementType = typeof DEFAULT_OPTIONS_TAG>(
     props: ComboboxOptionsProps<TTag> & RefProp<typeof OptionsFn>
   ): JSX.Element
 }
 
-interface ComponentComboboxOption extends HasDisplayName {
+export interface ComponentComboboxOption extends HasDisplayName {
   <
     TTag extends ElementType = typeof DEFAULT_OPTION_TAG,
     TType = Parameters<typeof ComboboxRoot>[0]['value']

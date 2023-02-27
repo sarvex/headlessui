@@ -204,20 +204,20 @@ function SwitchFn<TTag extends ElementType = typeof DEFAULT_SWITCH_TAG>(
 
 // ---
 
-interface ComponentSwitch extends HasDisplayName {
+export interface ComponentSwitch extends HasDisplayName {
   <TTag extends ElementType = typeof DEFAULT_SWITCH_TAG>(
     props: SwitchProps<TTag> & RefProp<typeof SwitchFn>
   ): JSX.Element
 }
 
-interface ComponentSwitchGroup extends HasDisplayName {
+export interface ComponentSwitchGroup extends HasDisplayName {
   <TTag extends ElementType = typeof DEFAULT_GROUP_TAG>(
     props: SwitchGroupProps<TTag> & RefProp<typeof GroupFn>
   ): JSX.Element
 }
 
-interface ComponentSwitchLabel extends ComponentLabel {}
-interface ComponentSwitchDescription extends ComponentDescription {}
+export interface ComponentSwitchLabel extends ComponentLabel {}
+export interface ComponentSwitchDescription extends ComponentDescription {}
 
 let SwitchRoot = forwardRefWithAs(SwitchFn) as unknown as ComponentSwitch
 let Group = GroupFn as unknown as ComponentSwitchGroup

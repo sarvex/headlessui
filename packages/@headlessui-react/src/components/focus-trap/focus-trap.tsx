@@ -176,7 +176,7 @@ function FocusTrapFn<TTag extends ElementType = typeof DEFAULT_FOCUS_TRAP_TAG>(
 
 // ---
 
-interface ComponentFocusTrap extends HasDisplayName {
+export interface ComponentFocusTrap extends HasDisplayName {
   <TTag extends ElementType = typeof DEFAULT_FOCUS_TRAP_TAG>(
     props: FocusTrapProps<TTag> & RefProp<typeof FocusTrapFn>
   ): JSX.Element

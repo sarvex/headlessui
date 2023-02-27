@@ -598,37 +598,37 @@ function TitleFn<TTag extends ElementType = typeof DEFAULT_TITLE_TAG>(
 
 // ---
 
-interface ComponentDialog extends HasDisplayName {
+export interface ComponentDialog extends HasDisplayName {
   <TTag extends ElementType = typeof DEFAULT_DIALOG_TAG>(
     props: DialogProps<TTag> & RefProp<typeof DialogFn>
   ): JSX.Element
 }
 
-interface ComponentDialogBackdrop extends HasDisplayName {
+export interface ComponentDialogBackdrop extends HasDisplayName {
   <TTag extends ElementType = typeof DEFAULT_BACKDROP_TAG>(
     props: DialogBackdropProps<TTag> & RefProp<typeof BackdropFn>
   ): JSX.Element
 }
 
-interface ComponentDialogPanel extends HasDisplayName {
+export interface ComponentDialogPanel extends HasDisplayName {
   <TTag extends ElementType = typeof DEFAULT_PANEL_TAG>(
     props: DialogPanelProps<TTag> & RefProp<typeof PanelFn>
   ): JSX.Element
 }
 
-interface ComponentDialogOverlay extends HasDisplayName {
+export interface ComponentDialogOverlay extends HasDisplayName {
   <TTag extends ElementType = typeof DEFAULT_OVERLAY_TAG>(
     props: DialogOverlayProps<TTag> & RefProp<typeof OverlayFn>
   ): JSX.Element
 }
 
-interface ComponentDialogTitle extends HasDisplayName {
+export interface ComponentDialogTitle extends HasDisplayName {
   <TTag extends ElementType = typeof DEFAULT_TITLE_TAG>(
     props: DialogTitleProps<TTag> & RefProp<typeof TitleFn>
   ): JSX.Element
 }
 
-interface ComponentDialogDescription extends ComponentDescription {}
+export interface ComponentDialogDescription extends ComponentDescription {}
 
 let DialogRoot = forwardRefWithAs(DialogFn) as unknown as ComponentDialog
 let Backdrop = forwardRefWithAs(BackdropFn) as unknown as ComponentDialogBackdrop

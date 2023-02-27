@@ -581,13 +581,13 @@ function ChildFn<TTag extends ElementType = typeof DEFAULT_TRANSITION_CHILD_TAG>
   )
 }
 
-interface ComponentTransitionRoot extends HasDisplayName {
+export interface ComponentTransitionRoot extends HasDisplayName {
   <TTag extends ElementType = typeof DEFAULT_TRANSITION_CHILD_TAG>(
     props: TransitionRootProps<TTag> & RefProp<typeof TransitionRootFn>
   ): JSX.Element
 }
 
-interface ComponentTransitionChild extends HasDisplayName {
+export interface ComponentTransitionChild extends HasDisplayName {
   <TTag extends ElementType = typeof DEFAULT_TRANSITION_CHILD_TAG>(
     props: TransitionChildProps<TTag> & RefProp<typeof TransitionChildFn>
   ): JSX.Element

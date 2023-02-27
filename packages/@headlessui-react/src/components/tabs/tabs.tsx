@@ -599,31 +599,31 @@ function PanelFn<TTag extends ElementType = typeof DEFAULT_PANEL_TAG>(
 
 // ---
 
-interface ComponentTab extends HasDisplayName {
+export interface ComponentTab extends HasDisplayName {
   <TTag extends ElementType = typeof DEFAULT_TAB_TAG>(
     props: TabProps<TTag> & RefProp<typeof TabFn>
   ): JSX.Element
 }
 
-interface ComponentTabGroup extends HasDisplayName {
+export interface ComponentTabGroup extends HasDisplayName {
   <TTag extends ElementType = typeof DEFAULT_TABS_TAG>(
     props: TabGroupProps<TTag> & RefProp<typeof GroupFn>
   ): JSX.Element
 }
 
-interface ComponentTabList extends HasDisplayName {
+export interface ComponentTabList extends HasDisplayName {
   <TTag extends ElementType = typeof DEFAULT_LIST_TAG>(
     props: TabListProps<TTag> & RefProp<typeof ListFn>
   ): JSX.Element
 }
 
-interface ComponentTabPanels extends HasDisplayName {
+export interface ComponentTabPanels extends HasDisplayName {
   <TTag extends ElementType = typeof DEFAULT_PANELS_TAG>(
     props: TabPanelsProps<TTag> & RefProp<typeof PanelsFn>
   ): JSX.Element
 }
 
-interface ComponentTabPanel extends HasDisplayName {
+export interface ComponentTabPanel extends HasDisplayName {
   <TTag extends ElementType = typeof DEFAULT_PANEL_TAG>(
     props: TabPanelProps<TTag> & RefProp<typeof PanelFn>
   ): JSX.Element
