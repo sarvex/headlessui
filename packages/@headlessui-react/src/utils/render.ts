@@ -281,9 +281,7 @@ export type HasDisplayName = {
   displayName: string
 }
 
-export type RefProp<T extends Function> = T extends (props: any, ref: Ref<infer RefType>) => any
-  ? { ref?: Ref<RefType> }
-  : never
+export type RefProp<RefType> = { ref?: Ref<RefType> }
 
 /**
  * This is a hack, but basically we want to keep the full 'API' of the component, but we do want to

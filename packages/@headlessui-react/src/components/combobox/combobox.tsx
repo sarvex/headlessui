@@ -384,19 +384,19 @@ export type ComboboxProps<
 }
 
 function ComboboxFn<TValue, TTag extends ElementType = typeof DEFAULT_COMBOBOX_TAG>(
-  props: ComboboxProps<TValue, true, true, TTag>,
+  props: ComboboxProps<TValue, true, true, TTag> & RefProp<TTag>,
   ref: Ref<TTag>
 ): JSX.Element
 function ComboboxFn<TValue, TTag extends ElementType = typeof DEFAULT_COMBOBOX_TAG>(
-  props: ComboboxProps<TValue, true, false, TTag>,
+  props: ComboboxProps<TValue, true, false, TTag> & RefProp<TTag>,
   ref: Ref<TTag>
 ): JSX.Element
 function ComboboxFn<TValue, TTag extends ElementType = typeof DEFAULT_COMBOBOX_TAG>(
-  props: ComboboxProps<TValue, false, false, TTag>,
+  props: ComboboxProps<TValue, false, false, TTag> & RefProp<TTag>,
   ref: Ref<TTag>
 ): JSX.Element
 function ComboboxFn<TValue, TTag extends ElementType = typeof DEFAULT_COMBOBOX_TAG>(
-  props: ComboboxProps<TValue, false, true, TTag>,
+  props: ComboboxProps<TValue, false, true, TTag> & RefProp<TTag>,
   ref: Ref<TTag>
 ): JSX.Element
 
@@ -718,7 +718,7 @@ function InputFn<
   // TODO: One day we will be able to infer this type from the generic in Combobox itself.
   // But today is not that day..
   TType = Parameters<typeof ComboboxRoot>[0]['value']
->(props: ComboboxInputProps<TTag, TType>, ref: Ref<HTMLInputElement>) {
+>(props: ComboboxInputProps<TTag, TType> & RefProp<HTMLInputElement>, ref: Ref<HTMLInputElement>) {
   let internalId = useId()
   let {
     id = `headlessui-combobox-input-${internalId}`,
@@ -1027,7 +1027,7 @@ export type ComboboxButtonProps<TTag extends ElementType> = Props<
 >
 
 function ButtonFn<TTag extends ElementType = typeof DEFAULT_BUTTON_TAG>(
-  props: ComboboxButtonProps<TTag>,
+  props: ComboboxButtonProps<TTag> & RefProp<HTMLButtonElement>,
   ref: Ref<HTMLButtonElement>
 ) {
   let data = useData('Combobox.Button')
@@ -1140,7 +1140,7 @@ export type ComboboxLabelProps<TTag extends ElementType> = Props<
 >
 
 function LabelFn<TTag extends ElementType = typeof DEFAULT_LABEL_TAG>(
-  props: ComboboxLabelProps<TTag>,
+  props: ComboboxLabelProps<TTag> & RefProp<HTMLLabelElement>,
   ref: Ref<HTMLLabelElement>
 ) {
   let internalId = useId()
@@ -1189,7 +1189,7 @@ export type ComboboxOptionsProps<TTag extends ElementType> = Props<
   }
 
 function OptionsFn<TTag extends ElementType = typeof DEFAULT_OPTIONS_TAG>(
-  props: ComboboxOptionsProps<TTag>,
+  props: ComboboxOptionsProps<TTag> & RefProp<typeof HTMLUListElement>,
   ref: Ref<HTMLUListElement>
 ) {
   let internalId = useId()
@@ -1279,7 +1279,7 @@ function OptionFn<
   // TODO: One day we will be able to infer this type from the generic in Combobox itself.
   // But today is not that day..
   TType = Parameters<typeof ComboboxRoot>[0]['value']
->(props: ComboboxOptionProps<TTag, TType>, ref: Ref<HTMLLIElement>) {
+>(props: ComboboxOptionProps<TTag, TType> & RefProp<HTMLLIElement>, ref: Ref<HTMLLIElement>) {
   let internalId = useId()
   let {
     id = `headlessui-combobox-option-${internalId}`,
@@ -1419,59 +1419,11 @@ function OptionFn<
 
 // ---
 
-export interface ComponentCombobox extends HasDisplayName {
-  <TValue, TTag extends ElementType = typeof DEFAULT_COMBOBOX_TAG>(
-    props: ComboboxProps<TValue, true, true, TTag> & RefProp<typeof ComboboxFn>
-  ): JSX.Element
-  <TValue, TTag extends ElementType = typeof DEFAULT_COMBOBOX_TAG>(
-    props: ComboboxProps<TValue, true, false, TTag> & RefProp<typeof ComboboxFn>
-  ): JSX.Element
-  <TValue, TTag extends ElementType = typeof DEFAULT_COMBOBOX_TAG>(
-    props: ComboboxProps<TValue, false, false, TTag> & RefProp<typeof ComboboxFn>
-  ): JSX.Element
-  <TValue, TTag extends ElementType = typeof DEFAULT_COMBOBOX_TAG>(
-    props: ComboboxProps<TValue, false, true, TTag> & RefProp<typeof ComboboxFn>
-  ): JSX.Element
-}
-
-export interface ComponentComboboxButton extends HasDisplayName {
-  <TTag extends ElementType = typeof DEFAULT_BUTTON_TAG>(
-    props: ComboboxButtonProps<TTag> & RefProp<typeof ButtonFn>
-  ): JSX.Element
-}
-
-export interface ComponentComboboxInput extends HasDisplayName {
-  <TType, TTag extends ElementType = typeof DEFAULT_INPUT_TAG>(
-    props: ComboboxInputProps<TTag, TType> & RefProp<typeof InputFn>
-  ): JSX.Element
-}
-
-export interface ComponentComboboxLabel extends HasDisplayName {
-  <TTag extends ElementType = typeof DEFAULT_LABEL_TAG>(
-    props: ComboboxLabelProps<TTag> & RefProp<typeof LabelFn>
-  ): JSX.Element
-}
-
-export interface ComponentComboboxOptions extends HasDisplayName {
-  <TTag extends ElementType = typeof DEFAULT_OPTIONS_TAG>(
-    props: ComboboxOptionsProps<TTag> & RefProp<typeof OptionsFn>
-  ): JSX.Element
-}
-
-export interface ComponentComboboxOption extends HasDisplayName {
-  <
-    TTag extends ElementType = typeof DEFAULT_OPTION_TAG,
-    TType = Parameters<typeof ComboboxRoot>[0]['value']
-  >(
-    props: ComboboxOptionProps<TTag, TType> & RefProp<typeof OptionFn>
-  ): JSX.Element
-}
-
-let ComboboxRoot = forwardRefWithAs(ComboboxFn) as unknown as ComponentCombobox
-let Button = forwardRefWithAs(ButtonFn) as unknown as ComponentComboboxButton
-let Input = forwardRefWithAs(InputFn) as unknown as ComponentComboboxInput
-let Label = forwardRefWithAs(LabelFn) as unknown as ComponentComboboxLabel
-let Options = forwardRefWithAs(OptionsFn) as unknown as ComponentComboboxOptions
-let Option = forwardRefWithAs(OptionFn) as unknown as ComponentComboboxOption
+let ComboboxRoot = forwardRefWithAs(ComboboxFn)
+let Button = forwardRefWithAs(ButtonFn)
+let Input = forwardRefWithAs(InputFn)
+let Label = forwardRefWithAs(LabelFn)
+let Options = forwardRefWithAs(OptionsFn)
+let Option = forwardRefWithAs(OptionFn)
 
 export let Combobox = Object.assign(ComboboxRoot, { Input, Button, Label, Options, Option })
